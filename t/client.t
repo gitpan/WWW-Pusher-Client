@@ -29,9 +29,10 @@ PUSHER_PROTOCOL: {
 }
 
 SOCKET_AUTH: {
+    # fake sample data from http://pusher.com/docs/auth_signatures
     $client->_socket_id('1234.1234');
     my $auth = $client->_socket_auth('private-foobar');
-    cmp_ok($auth, 'eq', '58df8b0c36d6982b82c3ecf6b4662e34fe8c25bba48f5369f135bf843651c3a4', 'fake auth matches');
+    cmp_ok($auth, 'eq', $fake_auth . ':58df8b0c36d6982b82c3ecf6b4662e34fe8c25bba48f5369f135bf843651c3a4', 'faked out auth matches');
 }
 
 # use Data::Dumper; use DDP;

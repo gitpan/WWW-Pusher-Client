@@ -125,8 +125,9 @@ sub _socket_auth {
     my ($self, $channel) = @_;
     die 'Missing socket_id, sorry...' unless $self->_socket_id;
 
+    # see http://pusher.com/docs/auth_signatures for more information
     my $plainSignature = $self->_socket_id . ':' . $channel;
-    return hmac_sha256_hex($plainSignature, $self->secret);
+    return $self->auth_key . ':' . hmac_sha256_hex($plainSignature, $self->secret);
 }
 
 
@@ -157,7 +158,7 @@ WWW::Pusher::Client - Laughably incomplete Perl client for Pusher WS API
 
 =head1 VERSION
 
-version 0.02
+version 0.0202
 
 =head1 SYNOPSIS
 
