@@ -1,0 +1,9 @@
+
+lib/WWW/Pusher/Client.pm,247
+package WWW::Pusher::Client;1,0
+sub BUILD WWW::Pusher::Client::BUILD104,1913
+sub subscribe WWW::Pusher::Client::subscribe135,2809
+sub _socket_auth WWW::Pusher::Client::_socket_auth149,3120
+sub trigger WWW::Pusher::Client::trigger165,3506
+
+t/client.t,0

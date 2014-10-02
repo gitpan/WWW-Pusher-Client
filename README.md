@@ -4,14 +4,14 @@ WWW::Pusher::Client - Laughably incomplete Perl client for Pusher WS API
 
 # VERSION
 
-version 0.0202
+version 0.01
 
 # SYNOPSIS
 
 Pusher is a hosted API for the websocket protocol. WWW::Pusher::Client
 is a laughably incomplete Perl client for their interface. It's really
-only suited for joining one channel in its lifetime - `bind` and
-`trigger` both use the most recent channel as defaults.
+only suited for joining one channel in its lifetime - `trigger` uses
+only the most recent channel as defaults.
 
     use WWW::Pusher::Client;
     my $pusher =  WWW::Pusher::Client->new(

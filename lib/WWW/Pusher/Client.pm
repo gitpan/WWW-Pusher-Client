@@ -125,9 +125,8 @@ sub _socket_auth {
     my ($self, $channel) = @_;
     die 'Missing socket_id, sorry...' unless $self->_socket_id;
 
-    # see http://pusher.com/docs/auth_signatures for more information
     my $plainSignature = $self->_socket_id . ':' . $channel;
-    return $self->auth_key . ':' . hmac_sha256_hex($plainSignature, $self->secret);
+    return hmac_sha256_hex($plainSignature, $self->secret);
 }
 
 
@@ -158,14 +157,14 @@ WWW::Pusher::Client - Laughably incomplete Perl client for Pusher WS API
 
 =head1 VERSION
 
-version 0.0202
+version 0.01
 
 =head1 SYNOPSIS
 
 Pusher is a hosted API for the websocket protocol. WWW::Pusher::Client
 is a laughably incomplete Perl client for their interface. It's really
-only suited for joining one channel in its lifetime - C<bind> and
-C<trigger> both use the most recent channel as defaults.
+only suited for joining one channel in its lifetime - C<trigger> uses
+only the most recent channel as defaults.
 
     use WWW::Pusher::Client;
     my $pusher =  WWW::Pusher::Client->new(

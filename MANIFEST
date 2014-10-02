@@ -5,6 +5,7 @@ META.yml
 Makefile.PL
 README
 README.md
+TAGS
 dist.ini
 lib/WWW/Pusher/Client.pm
 t/client.t
